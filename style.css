@@ -1,6 +1,6 @@
 .container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 h1{
@@ -11,12 +11,13 @@ h1{
 }
 
 body {
-    background-color: burlywood;
+    background-color: rgb(159, 198, 235);
 }
 
 .add-book {
     padding: 5px 15px;
-    background-color: rgb(100, 202, 100);
+    background-color: rgb(100, 119, 202);
+    color: rgb(233, 233, 233);
     border: none;
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.103);
@@ -40,6 +41,7 @@ form {
     margin: 5px;
     padding: 5px;
     background-color: rgb(253, 217, 170);
+    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
 }

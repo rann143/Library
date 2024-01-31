@@ -18,7 +18,7 @@ const container = document.querySelector('.container');
 myLibrary.forEach(item => {
     let card = document.createElement('div');
     card.classList.add('card');
-    card.textContent = item.title + ", by " + item.author;
+    card.textContent = item.title + " by " + item.author;
     container.appendChild(card);
 })
 
@@ -46,13 +46,15 @@ function addBookToLibrary(title, author) {
 
     title = titleInput.value;
     author = authInput.value;
+    authInput.value = "";
+    titleInput.value = "";
 
     let newBook = new Book(title, author);
     myLibrary.push(newBook);
 
     const card = document.createElement('div');
     card.classList.add('card');
-    card.textContent = newBook.title + ", " + newBook.author;
+    card.textContent = newBook.title + " " + newBook.author;
     container.appendChild(card);
 
 }
