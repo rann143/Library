@@ -4,12 +4,12 @@ const myLibrary = [
         author: "Haruki Murakami",
     }, 
     {
-    title: "The Blade Itself",
-    author: "Joe Abercrombie",
+        title: "The Blade Itself",
+        author: "Joe Abercrombie",
     },
     { 
-    title: "Kafka on the Shore",
-    author: "Haruki Murakami",
+        title: "Kafka on the Shore",
+        author: "Haruki Murakami",
     }];
 
 const container = document.querySelector('.container');
