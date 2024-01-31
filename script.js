@@ -5,9 +5,10 @@ const container = document.querySelector('.container');
 myLibrary.forEach(item => {
     let card = document.createElement('div');
     card.textContent = item;
-    card.style.border = "1px solid";
+    // card.style.border = "1px solid";
     card.style.margin = "5px";
     card.style.padding = "5px";
+    card.style.backgroundColor = "rgb(253, 217, 170)";
     container.appendChild(card);
 })
 
@@ -24,9 +25,10 @@ function addBookToLibrary(book) {
 
     let card = document.createElement('div');
     card.textContent = book;
-    card.style.border = "1px solid";
+    // card.style.border = "1px solid";
     card.style.margin = "5px";
     card.style.padding = "5px";
+    card.style.backgroundColor = "rgb(253, 217, 170)";
     container.appendChild(card);
 
 }
