@@ -59,7 +59,7 @@ function addBookToLibrary(title, author) {
 
 }
 
-const subBtn = document.querySelector(".submit-form");
+const subBtn = document.querySelector(".form-button");
 subBtn.addEventListener('click', event => {
     event.preventDefault();
     addBookToLibrary();
