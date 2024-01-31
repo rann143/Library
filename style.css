@@ -36,6 +36,14 @@ form {
     padding-right: 10px;
 }
 
+.card {
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(253, 217, 170);
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #read {
     align-self: center;
     padding: 0;

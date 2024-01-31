@@ -17,10 +17,8 @@ const container = document.querySelector('.container');
 //Add pre-entered books to display
 myLibrary.forEach(item => {
     let card = document.createElement('div');
+    card.classList.add('card');
     card.textContent = item.title + ", by " + item.author;
-    card.style.margin = "5px";
-    card.style.padding = "5px";
-    card.style.backgroundColor = "rgb(253, 217, 170)";
     container.appendChild(card);
 })
 
@@ -53,10 +51,8 @@ function addBookToLibrary(title, author) {
     myLibrary.push(newBook);
 
     const card = document.createElement('div');
+    card.classList.add('card');
     card.textContent = newBook.title + ", " + newBook.author;
-    card.style.margin = "5px";
-    card.style.padding = "5px";
-    card.style.backgroundColor = "rgb(253, 217, 170)";
     container.appendChild(card);
 
 }
