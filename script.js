@@ -19,6 +19,12 @@ myLibrary.forEach(item => {
     let card = document.createElement('div');
     card.classList.add('card');
     card.textContent = item.title + " by " + item.author;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-button');
+    removeBtn.textContent = "Remove";
+    
+    card.appendChild(removeBtn);
     container.appendChild(card);
 })
 
@@ -55,9 +61,27 @@ function addBookToLibrary(title, author) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.textContent = newBook.title + " " + newBook.author;
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-button');
+    card.setAttribute('data-bookid', myLibrary.indexOf(myLibrary[myLibrary.length - 1]));
+    removeBtn.textContent = "Remove";
+
+    removeBtn.addEventListener('click', event => {
+       let i = card.dataset.bookid;
+
+        myLibrary.splice(i, 1);
+        console.log(myLibrary);
+        console.log(i);
+
+    })
+    
+    card.appendChild(removeBtn);
     container.appendChild(card);
 
+    console.log(myLibrary);
+
 }
+
 
 const subBtn = document.querySelector(".form-button");
 subBtn.addEventListener('click', event => {
@@ -65,6 +89,18 @@ subBtn.addEventListener('click', event => {
     addBookToLibrary();
     dialog.close();
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

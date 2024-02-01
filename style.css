@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
 }
 
 h1{
@@ -23,6 +23,10 @@ body {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.103);
 }
 
+.add-book:hover {
+    background-color: rgb(91, 108, 185);
+}
+
 form {
     padding: 10px;
     width: 200px;
@@ -38,6 +42,7 @@ form {
 }
 
 .card {
+    height: 50px;
     margin: 5px;
     padding: 5px;
     background-color: rgb(253, 217, 170);
@@ -70,4 +75,18 @@ input {
 
 #cancel {
     justify-self: center;
+}
+
+.remove-button {
+    height: 20px;
+    margin-left: 10px;
+    background-color: rgb(202, 146, 100);
+    color: rgb(233, 233, 233);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.103);
+}
+
+.remove-button:hover {
+    background-color: rgb(189, 136, 93);
 }
