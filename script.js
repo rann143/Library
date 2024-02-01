@@ -95,8 +95,10 @@ function addBookToLibrary(title, author, read) {
 
         if (newBook.read === false) {
             card.style.backgroundColor = "rgb(253, 217, 170)";
+            readBtn.style.backgroundColor = "rgb(202, 146, 100)";
         } else if (newBook.read === true) {
             card.style.backgroundColor = "rgba(129, 192, 117, 0.877)";
+            readBtn.style.backgroundColor = "rgb(148, 107, 73)";
         }
         console.log(myLibrary);
         
