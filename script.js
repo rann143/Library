@@ -48,20 +48,40 @@ addBookBtn.addEventListener('click', () => {
     dialog.showModal();
 })
 
-function Book(title, author, read) {
-    // the constructor
-    this.title = title;
-    this.author = author;
-    this.read = false;
-}
+// function Book(title, author, read) {
+//     // the constructor
+//     this.title = title;
+//     this.author = author;
+//     this.read = false;
+// }
 
-Book.prototype.toggleReadStatus = function() {
-    if (this.read === false) {
-        this.read = true;
-    } else if (this.read === true) {
+// Book.prototype.toggleReadStatus = function() {
+//     if (this.read === false) {
+//         this.read = true;
+//     } else if (this.read === true) {
+//         this.read = false;
+//     }
+// }
+
+// Use Class instead of Object Literal
+class Book {
+
+    constructor(title, author, read) {
+        this.title = title;
+        this.author = author;
         this.read = false;
     }
+
+    toggleReadStatus() {
+        if (this.read === false) {
+            this.read = true;
+        } else if (this.read === true) {
+            this.read = false;
+        }
+    }
+
 }
+
 
 const titleInput = document.querySelector("#title-input");
 const authInput = document.querySelector("#author-input");
@@ -89,16 +109,18 @@ function addBookToLibrary(title, author, read) {
 
     const readBtn = document.createElement('button');
     readBtn.classList.add("card-button");
-    readBtn.textContent = "Read?";
+    readBtn.textContent = "Not Read";
     readBtn.addEventListener('click', event => {
         newBook.toggleReadStatus();
 
         if (newBook.read === false) {
             card.style.backgroundColor = "rgb(253, 217, 170)";
             readBtn.style.backgroundColor = "rgb(202, 146, 100)";
+            readBtn.textContent = "Not Read";
         } else if (newBook.read === true) {
             card.style.backgroundColor = "rgba(129, 192, 117, 0.877)";
             readBtn.style.backgroundColor = "rgb(148, 107, 73)";
+            readBtn.textContent = "Read";
         }
         console.log(myLibrary);
         
@@ -128,12 +150,60 @@ function addBookToLibrary(title, author, read) {
 
 }
 
+//FORM VALIDATION CODE
+const authError = document.querySelector('#auth-error');
+const titleError = document.querySelector('#title-error');
+
+function showAuthError() {
+    if (authInput.validity.valueMissing) {
+        authError.textContent = "You need to enter the author's name";
+    }
+
+    authError.className = "error active";
+}
+function showTitleError() {
+    if (titleInput.validity.valueMissing) {
+        titleError.textContent = "You need to enter the title's name";
+    }
+
+    titleError.className = "error active";
+}
+
+authInput.addEventListener("input", (e) => {
+    if (authInput.validity.valid) {
+        authError.textContent = "";
+        authError.className = 'error';
+    } else {
+        showAuthError();
+    }
+})
+titleInput.addEventListener("input", (e) => {
+    if (titleInput.validity.valid) {
+        titleError.textContent = "";
+        titleError.className = 'error';
+    } else {
+        showTitleError();
+    }
+})
 
 const subBtn = document.querySelector(".form-button");
 subBtn.addEventListener('click', event => {
-    event.preventDefault();
-    addBookToLibrary();
-    dialog.close();
+    
+    if (!authInput.validity.valid) {
+        
+        showAuthError();
+        event.preventDefault();
+    }
+    if (!titleInput.validity.valid) {
+        
+        showTitleError();
+        event.preventDefault();
+    }
+    if (authInput.validity.valid && titleInput.validity.valid) {
+        event.preventDefault();
+        addBookToLibrary();
+        dialog.close();
+    }
 })
 
 

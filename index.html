@@ -16,14 +16,16 @@
     <div class="container"></div>
     
     <dialog>
-        <form action="">
+        <form novalidate>
             <div class="form-inputs">
-                <label for="title-input">Title:</label>
-                <input type="text" id="title-input" name="title">
+                <label for="title-input">Title:<span aria-label="required">*</span></label>
+                <input type="text" id="title-input" name="title" required/>
+                <span class="error" id="title-error" aria-live="polite"></span>
             </div>
             <div class="form-inputs">
-                <label for="author-input">Author:</label>
-                <input type="text" id="author-input" name="author">
+                <label for="author-input">Author:<span aria-label="required">*</span></label>
+                <input type="text" id="author-input" name="author" required/>
+                <span class="error" id="auth-error" aria-live="polite"></span>
             </div>
             <!-- <div class="form-inputs">
                 <label for="genre-input">Genre:</label>
@@ -41,8 +43,8 @@
                 </select>
             </div> -->
             
-                <button class="form-button">Submit</button>
-                <input type="submit" class="form-button" id="cancel" value="Cancel" />
+                <button class="form-button" type="submit">Submit</button>
+                <!-- <input type="submit" class="form-button" id="cancel" value="Cancel" /> -->
                 
         </form>
     </dialog>
